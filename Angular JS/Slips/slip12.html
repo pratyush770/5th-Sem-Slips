@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var app = angular.module('myApp',[]);
+    app.controller('userCtrl',function($scope){
+        $scope.invoice = [{
+                name:"",
+                contactno:"",
+                gender:"",
+                favourite:"",
+                price:"",
+                qty:""
+            }]
+        }
+    )
+    </script>
+    <h1>Customer Invoice Example</h1>
+    <table ng-controller="userCtrl">
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Gender</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat = "item in invoice">
+                    <td><input type="text" ng-model="item.name"></td>
+                    <td><input type="text" ng-model="item.contactno"></td>
+                    <td><select ng-model="item.gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select></td>
+                    <td><select ng-model="item.favourite">
+                        <option value="Jeans">Jeans</option>
+                        <option value="Shirt">Shirt</option>
+                        <option value="Watch">Watch</option>
+                        <option value="Shoes">Shoes</option>
+                    </select></td>
+                    <td><input type="number" ng-model="item.price"></td>
+                    <td><input type="text" ng-model="item.qty"></td>
+                    <td>{{item.qty * item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>

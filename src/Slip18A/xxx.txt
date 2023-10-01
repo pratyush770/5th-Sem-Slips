@@ -1,0 +1,39 @@
+IMPORT JAVA.IO.*;
+CLASS sLIP18a
+{
+	PUBLIC STATIC VOID MAIN(sTRING [] ARGS) THROWS eXCEPTION
+	{
+		fILErEADER FR = NEW fILErEADER(ARGS[*]);
+		fILEwRITER FW = NEW fILEwRITER("XXX.TXT");
+		INT DATA = * ;
+		CHAR CH;
+		WHILE(DATA!=-1)
+		{
+			DATA = FR.READ();
+			CH = (CHAR)DATA;
+			//sYSTEM.OUT.PRINT(CH + " ");
+			IF(CH>='A' && CH<='Z')
+			{
+				DATA = DATA - 32; // CONVERTS IT INTO UPPERCASE
+				FW.WRITE((CHAR)DATA + "");
+			}
+			ELSE IF(CH>='a' && CH<='z')
+			{
+				DATA = DATA + 32; // CONVERTS IT INTO LOWERCASE
+				FW.WRITE((CHAR)DATA + "");
+			}
+			ELSE IF(CH>='*' && CH<='*')
+			{
+				CH = '*';
+				FW.WRITE(CH + "");
+			}
+			ELSE
+			{
+				FW.WRITE((CHAR)DATA + "");
+			}
+				
+		}
+		FW.FLUSH();
+		FR.CLOSE();
+	}
+}?

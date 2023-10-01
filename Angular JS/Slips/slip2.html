@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Slip 2</title>
+    <style>
+        body{
+            margin:50px;
+            margin-left:600px;
+            font-size: 24px;
+            margin-top:220px; 
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+        $scope.ugcourse=[
+            {id:'i.',course:'BBA(CA)'},
+            {id:'ii.',course:'BCA(Science)'},
+            {id:'iii.',course:'B.Sc.(Computer Science)'}
+        ];
+        $scope.pgcourse=[
+            {id:'i.',course:'M.Sc.(Computer Science)'},
+            {id:'ii.',course:'M.Sc.(CA)'},
+            {id:'iii.',course:'MCA'}
+        ];
+    });
+</script>
+<div>
+    <div ng-init="Ug='Undergraduate Courses'"></div>
+    <div ng-init="Pg='Post Graduate Courses'"></div>
+    <p ng-bind="Ug"></p>
+    <div ng-repeat="x in ugcourse">
+        {{x.id}}
+        {{x.course}}
+    </div>
+    <p ng-bind="Pg"></p>
+    <div ng-repeat="x in pgcourse">
+        {{x.id}}
+        {{x.course}}
+    </div>
+</div>
+</body>
+</html>

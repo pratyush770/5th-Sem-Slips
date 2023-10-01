@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+    <style>
+        nav{
+            background-color: orangered;
+            height:25px;
+            width:80%;
+            margin-left:150px;
+        }
+        nav ul{
+            display: flex;
+            list-style-type: none;
+        }
+        nav ul li{
+            float:left;
+            margin:0 10px;
+            line-height: 25px;
+        }
+        nav ul li a{
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav >
+        <ul>
+            <li><a href="#/home" style="font-size: 18px;font-weight: bold;">Hacker News</a></li>
+            <li><a href="#/new">new &nbsp;|</a></li>
+            <li><a href="#/past">past &nbsp;|</a></li>
+            <li><a href="#/comments">comments &nbsp;|</a></li>
+        </ul>
+
+        <script type="text/ng-template" id="home.html">
+            <h1>This is a clone of 'Hacker News' website</h1>
+        </script>
+        <script type="text/ng-template" id="new.html">
+            <h1>All the new data gets displayed here</h1>
+        </script>
+        <script type="text/ng-template" id="past.html">
+            <h1>All the past data gets displayed here</h1>
+        </script>
+        <script type="text/ng-template" id="comments.html">
+            <h1>All the comments gets displayed here</h1>
+        </script>
+
+        <div ng-view></div>
+
+        <script>
+            var app = angular.module('myApp',[]);
+            var app = angular.module('myApp',['ngRoute']);
+            app.config(function ($routeProvider){
+                $routeProvider
+                .when('/home',{
+                    templateUrl : 'home.html'
+                })
+                .when('/new',{
+                    templateUrl : 'new.html'
+                })
+                .when('/past',{
+                    templateUrl : 'past.html'
+                })
+                .when('/comments',{
+                    templateUrl : 'comments.html'
+                })
+            });
+        </script>
+    </nav>
+</body>
+</html>

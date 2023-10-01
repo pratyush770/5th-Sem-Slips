@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <h1>Customer Booking</h1>
+    <form action="" name="form1">
+        <input type="text" placeholder="Enter name" ng-model="cname" size="30"> <br> <br>
+        <textarea cols="30" rows="6" placeholder="Enter address" ng-model="cadd"></textarea> <br> <br>
+        <input type="text" placeholder="Enter number" ng-model="cno" size="30"> <br> <br>
+        <label for="Gender">Select gender</label>
+        <select ng-model="gender" id="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select> <br> <br>
+        <label for="dob">Date of Booking</label>
+        <input type="date" ng-model="cdob" id="dob"> <br> <br>
+        <label for="doj">Date of Journey</label>
+        <input type="date" ng-model="cdoj" id="doj"> <br> <br>
+        <input type="number" placeholder="No of passengers" size="30" ng-model="nop"> <br> <br>
+        <input type="button" value="Display E-Ticket" ng-click="ShowHide('show')">
+    </form> <br> <br>
+    <div ng-show="showval">
+        <h1>Customer Details</h1> <br> 
+        <form action="" name="form2">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>Gender</th>
+                    <th>Date of Booking</th>
+                    <th>Date of Journey</th>
+                    <th>Number of Passengers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{cname}}</td>
+                    <td>{{cadd}}</td>
+                    <td>{{cno}}</td>
+                    <td>{{gender}}</td>
+                    <td>{{cdob}}</td>
+                    <td>{{cdoj}}</td>
+                    <td>{{nop}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+    </div>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.showval = false;
+            $scope.ShowHide = function(param){
+                if(param == "show"){
+                    $scope.showval = true;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+<head>
+<body>
+    <!--ng-show usage in AngularJs-->
+    Show HTML : <input type="checkbox" ng-model="my">
+    <div ng-show="my">
+        <h3>Welcome to first page</h3>
+    </div>
+    <div>
+        <h3>Welcome to second page</h3>
+    </div>
+
+    <!--ng-hide usage in AngularJs-->
+    Hide HTML : <input type="checkbox" ng-model="my">
+    <div ng-hide="my">
+        <h3>Welcome to first page</h3>
+    </div>
+    <div>
+        <h3>Welcome to second page</h3>
+    </div>
+
+    <!--ng-readonly usage in AngularJs-->
+    Click here to make the file readonly : <input type="checkbox" ng-model="all">
+    <br>
+    <input type="text" ng-readonly="all">
+</body>
+</html>

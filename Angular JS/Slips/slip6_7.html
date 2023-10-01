@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p>SYBBA-CA Syllabus</p>
+    <p><a href="#/">Main Page</a></p>
+    <ul>
+        <li><a href="#/dm">Digital Marketing</a></li>
+        <li><a href="#/ds">Data Structure</a></li>
+        <li><a href="#/se">Software Engineering</a></li>
+        <li><a href="#/bd">Big data</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="digital.html">
+        <h2>Subjects of Digital Marketing</h2> <br>
+        <h3>1) E-commerce</h3>
+        <h3>2) Introduction to digital marketing</h3>
+        <h3>3) Creating digital marketing plan</h3>
+        <h3>4) Marketing using websites</h3>
+    </script>
+    <script type="text/ng-template" id="data.html">
+        <h2>Subjects of Data Structure</h2><br>
+        <h3>1) Introduction to Data Structure</h3>
+        <h3>2) Linked-lists and arrays</h3>
+        <h3>3) Stacks and queues</h3>
+    </script>
+    <script type="text/ng-template" id="software.html">
+        <h2>Subjects of Software Engineering</h2><br>
+        <h3>1) Introduction to System Concpts</h3>
+        <h3>2) Introduction to Software Engineering</h3>
+        <h3>3) Software development life cycle</h3>
+        <h3>4) Requirement Engineering</h3>
+    </script>
+    <script type="text/ng-template" id="bigdata.html">
+        <h2>Subjects of Big Data</h2><br>
+        <h3>1) Introduction to Big Data</h3>
+        <h3>2) Introduction to Data Science</h3>
+        <h3>3) Introduction to Machine Learning</h3>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp',['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/dm',{
+                templateUrl : 'digital.html'
+            })
+            .when('/ds',{
+                templateUrl : 'data.html'
+            })
+            .when('/se',{
+                templateUrl : 'software.html'
+            })
+            .when('/bd',{
+                templateUrl : 'bigdata.html'
+            })
+            .otherwise({redirectTo : '/'})
+        });
+    </script>
+</body>
+</html>

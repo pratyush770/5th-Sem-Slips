@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="userCtrl">
+    <script>
+        var app =angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.number3 = 1;
+            $scope.number4 = 1;
+            $scope.add = function(){
+                $scope.result1 = ($scope.number3 + $scope.number4);
+            }
+            $scope.IsVisible = false;
+            $scope.ShowHide = function(){
+                $scope.IsVisible = true;
+            }
+        })
+    </script>
+    <h3>Using ng-model directive</h3>
+    <div ng-app="myApp" ng-controller="userCtrl" ng-init="number1=10;number2=20">
+        Number 1 : <input type="number" ng-model="number1">
+        Number 2 : <input type="number" ng-model="number2">
+        Result : {{number1 + number2}}
+    </div>
+    <br> <br>
+    <h3>Using ng-bind directive</h3>
+    <div ng-app="myApp" ng-controller="userCtrl">
+        Number 1 : <input type="number" ng-model="number3" ng-change="add()">
+        Number 2 : <input type="number" ng-model="number4" ng-change="add()">
+        <b>Addition : </b> <span ng-bind="result1"></span>
+    </div>
+    <br> <br>
+    <h3>Ng-disabled directive demonstration</h3>
+    <div ng-app="myApp" ng-controller="userCtrl">
+        <button ng-disabled="myButton">Click Me!</button>
+        <br> <br>
+        <input type="checkbox" ng-model="myButton">
+        <br> <br>
+        Disabled : {{myButton}}
+    </div>
+    <br> <br>
+    <h3>Ng-click and ng-show directives demonstration</h3>
+    <div ng-app="myApp" ng-controller="userCtrl">
+        <input type="button" value="Show Angular" ng-click="ShowHide()">
+        <br> <br>
+        <div ng-show="IsVisible">Angular</div>
+    </div>
+</body>
+</html>

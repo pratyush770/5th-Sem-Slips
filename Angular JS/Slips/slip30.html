@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">E-commerce Website</h1>
+    <p><a href="#/">Home</a></p>
+    <ul>
+        <li><a href="#/pro">Products</a></li>
+        <li><a href="#/cat">Categories</a></li>
+        <li><a href="#/price">Price</a></li>
+        <li><a href="#/con">Contact</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="product.html">
+        <h1> All the products gets displayed here</h1>
+    </script>
+    <script type="text/ng-template" id="category.html">
+        <h1> All the categories gets displayed here</h1>
+    </script>
+    <script type="text/ng-template" id="price.html">
+        <h1> All the product prices gets displayed here</h1>
+    </script>
+    <script type="text/ng-template" id="contact.html">
+        <h1> For any queries, contact us at ecom@gmail.com</h1>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app=angular.module('myApp',[]);
+        var app =angular.module('myApp',['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/pro',{
+                templateUrl : 'product.html'
+            })
+            .when('/cat',{
+                templateUrl : 'category.html'
+            })
+            .when('/price',{
+                templateUrl : 'price.html'
+            })
+            .when('/con',{
+                templateUrl : 'contact.html'
+            })
+            .otherwise({redirectTo : '/'});
+        });
+    </script>
+</body>
+</html>

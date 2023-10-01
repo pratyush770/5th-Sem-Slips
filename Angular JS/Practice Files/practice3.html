@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app> <!--Angular JS Application-->
+<head>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    Click here to disable the text : <input type="checkbox" ng-model="a">
+    <br>
+    <input type="text" ng-disabled="a">
+    <select ng-disabled="a">
+        <option >Male</option>
+        <option >Female</option>
+    </select>
+    </div>
+    <br> <br>
+    Keep HTML : <input type="checkbox" ng-model="myVar">
+    <div ng-if="myVar">
+        <h1>Welcome</h1>
+        <p>The DIV element will be removed when the checkbox is not checked </p>
+        <p>The DIV element will return, if you check the checkbox</p>
+    </div>
+    </div>
+</body>
+</html>

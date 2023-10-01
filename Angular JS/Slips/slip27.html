@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Recipe Book</h1>
+    <p><a href="#/">Home</a></p>
+    <ul>
+        <li><a href="#/dish">Dishes</a></li>
+        <li><a href="#/ing">Ingredients</a></li>
+        <li><a href="#/recipes">Recipes</a></li>
+        <li><a href="#/contact">Contact Us</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="dishes.html">
+        <h2>All dishes get uploaded here</h2>
+    </script>
+    <script type="text/ng-template" id="ingredient.html">
+        <h2>Ingredients required for each dish</h2>
+    </script>
+    <script type="text/ng-template" id="recipes.html">
+        <h2>Recipe for making dishes</h2>
+    </script>
+    <script type="text/ng-template" id="contact.html">
+        <h2>For any queries, contact us at myrecipe@gmail.com</h2>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp',['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/dish',{
+                templateUrl : 'dishes.html'
+            })
+            .when('/ing',{
+                templateUrl : 'ingredient.html'
+            })
+            .when('/recipes',{
+                templateUrl : 'recipes.html'
+            })
+            .when('/contact',{
+                templateUrl : 'contact.html'
+            })
+            .otherwise({redirectTo : '/'})
+        });
+    </script>
+</body>
+</html>

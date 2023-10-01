@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Historical places in India</h1>
+    <p><a href="#/"> Home</a></p>
+    <ul>
+        <li><a href="#/pune">Pune</a></li>
+        <li><a href="#/au">Aurangabad</a></li>
+        <li><a href="#/jodh">Jodhpur</a></li>
+        <li><a href="#/hyd">Hyderabad</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="pune.html">
+        <p style="font-size:20px;">Pune is the 8th largest metropolis in India. It is on the Deccan Plateau in the Indian state of 
+            Maharashtra. The city is famous for the great Maratha king Chatrapati Shivaji Maharaj. It is also the 
+            birthplace of spiritual teacher Meher Baba. Mutha are the two rivers that flow through the city.
+            It has a major Information Technology (IT) center. This city is managed by the Pune Municipal Council 
+            (PMC). Pune is a city of knowledge and often known as the Oxford of the east. In Marathi, it is known 
+            as vidyeche maherghar. It means the hometown of education. The population of Pune was 8,242,142 by 2015.</p>
+    </script>
+    <script type="text/ng-template" id="aurangabad.html">
+        <p style="font-size:20px;">Aurangabad officially known as Chhatrapati Sambhaji Nagar, also spelt Chhatrapati Sambhajinagar, is a 
+            city in the Indian state of Maharashtra. It is the administrative headquarters of Aurangabad district 
+            and is the largest city in the Marathwada region. Located on a hilly upland terrain in the Deccan Traps,
+            Aurangabad is the fifth-most populous urban area in Maharashtra after Mumbai, Pune, Nagpur and Nashik 
+            with a population of 1,175,116.</p>
+    </script>
+    <script type="text/ng-template" id="jodhpur.html">
+        <p style="font-size:20px;">Jodhpur is the second-largest city in the Indian state of Rajasthan and officially the second 
+            metropolitan city of the state. It was formerly the seat of the princely state of Jodhpur State. 
+            Jodhpur was historically the capital of the Kingdom of Marwar, which is now part of Rajasthan. 
+            Jodhpur is a popular tourist destination, featuring many palaces, forts, and temples, set in the 
+            stark landscape of the Thar Desert. It is popularly known as the "Blue City" among people of Rajasthan
+             and all over India. It serves as the administrative headquarters of the Jodhpur district and Jodhpur
+            division.</p>
+    </script>
+    <script type="text/ng-template" id="hyderabad.html">
+        <p style="font-size:20px;">Hyderabad is the capital and largest city of the Indian state of Telangana. It occupies 650 km2 
+            (250 sq mi) on the Deccan Plateau along the banks of the Musi River, in the northern part of Southern 
+            India. With an average altitude of 542 m (1,778 ft), much of Hyderabad is situated on hilly terrain 
+            around artificial lakes, including the Hussain Sagar lake, predating the city's founding, in the north 
+            of the city centre. According to the 2011 Census of India, Hyderabad is the fourth-most populous city 
+            in India with a population of 6.9 million residents within the city limits, and has a population of 9.7 
+            million residents in the metropolitan region, making it the sixth-most populous metropolitan area in 
+            India.</p>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp',['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/pune',{
+                templateUrl : 'pune.html'
+            })
+            .when('/au',{
+                templateUrl : 'aurangabad.html'
+            })
+            .when('/jodh',{
+                templateUrl : 'jodhpur.html'
+            })
+            .when('/hyd',{
+                templateUrl : 'hyderabad.html'
+            })
+            .otherwise({redirectTo : '/'})
+        });
+    </script>
+</body>
+</html>

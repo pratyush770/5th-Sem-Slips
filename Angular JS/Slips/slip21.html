@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.showval = false;
+            $scope.showHide=function(param){
+                if(param=='show'){
+                    $scope.showval = true;
+                }
+            }
+        });
+    </script>
+    <h1 style="text-align: center;">Doctor Details</h1>
+    <form action="">
+        <input type="number" name="dno" ng-model="dno" placeholder="Enter doctor number" size="30"> <br> <br>
+        <input type="text" name="dname" ng-model="dname" placeholder="Enter doctor name" size="30"> <br> <br>
+        <textarea name="add" ng-model="add" cols="30" rows="6" placeholder="Enter address"></textarea> <br> <br>
+        <input type="number" name="pno" ng-model="pno" size="30" placeholder="Enter phone number"> <br> <br>
+        <input type="button" value="Display" ng-click="showHide('show')">
+    </form>
+    <div ng-show="showval">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{dno}}</td>
+                    <td>{{dname}}</td>
+                    <td>{{add}}</td>
+                    <td>{{pno}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+    <style>
+        body{
+            margin:50px;
+            margin-left:600px;
+            font-size: 24px;
+            margin-top:150px; 
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            height:15px;
+            width:400px;
+            padding:19.5px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div ng-init="Text='List of games stored in an array'">
+        <p ng-bind="Text"></p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+            <th>Game Name</th>
+            <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in games">
+                <td> {{x.name}}</td>
+                <td>{{x.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="button" ng-click="showGames()" value="Click here">
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+        $scope.showGames=function(){
+        $scope.games=[
+            {name:'Football',type:'Outdoor'},
+            {name:'Chess',type:'Indoor'},
+            {name:'Cricket',type:'Outdoor'},
+            {name:'Hockey',type:'Outdoor'}
+        ];
+        }
+    });
+</script>
+</body>
+</html>

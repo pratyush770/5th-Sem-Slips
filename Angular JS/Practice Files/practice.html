@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app> <!--Angular JS Application-->
+<head>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+<p ng-init="msg='Hello'"> </p>
+        <p>Name : <input type="text" ng-model="msg"></p>  
+        <!-- <p>Hello {{msg}}</p> -->
+        <p ng-bind="msg"></p>
+    </div>
+</body>
+</html>

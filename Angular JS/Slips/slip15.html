@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <h1>Bus Ticket Reservation</h1>
+    <form action="" name="form1">
+        <input type="text" ng-model="name" size="30" placeholder="Enter name"> <br> <br>
+        <textarea ng-model="address" cols="30" rows="6" placeholder="Enter address"></textarea> <br> <br>
+        <input type="text" placeholder="Enter number" ng-model="phone" size="30"> <br> <br>
+        <label for="sstation">Source Station</label>
+        <select id="sstation" ng-model="source">
+            <option value="Pune">Pune</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select> <br> <br>
+        <label for="dstation">Destination Station</label>
+        <select id="dstation" ng-model="destination">
+            <option value="Pune">Pune</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select> <br> <br>
+        <label for="dob">Enter Date of Booking</label>
+        <input type="date" ng-model="dob"> <br> <br>
+        <label for="doj">Enter Date of Journey</label>
+        <input type="date" ng-model="doj"> <br> <br>
+        <input type="number" ng-model="nop" placeholder="Enter no of passengers" size="30"> <br> <br>
+        <label for="gender">Gender</label>
+        <select id="gender" ng-model="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select> <br> <br>
+        <input type="button" value="Display E-Ticket" ng-click="ShowHide('show')">
+    </form>
+    <div ng-show="showval">
+        <h1>Bus Booking Details</h1>
+        <form action="" name="form2">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Date of Booking</th>
+                        <th>Date of Journey</th>
+                        <th>No of Passengers</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{address}}</td>
+                        <td>{{phone}}</td>
+                        <td>{{source}}</td>
+                        <td>{{destination}}</td>
+                        <td>{{dob}}</td>
+                        <td>{{doj}}</td>
+                        <td>{{nop}}</td>
+                        <td>{{gender}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <script>
+        var app =angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.showval = false;
+            $scope.ShowHide = function(param){
+                if(param=="show"){
+                    $scope.showval=true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

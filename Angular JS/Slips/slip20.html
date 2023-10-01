@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.showval = false;
+            $scope.isShow = function(param){
+                if(param=='show'){
+                    $scope.showval = true;
+                }
+            }
+        });
+    </script>
+    <h1 style="text-align: center;">Form validation using AngularJs</h1>
+    <form action="" name="myform" novalidate>
+        <input type="text" placeholder="Enter name" size="40" name="name" ng-model="name"
+        ng-pattern="/^[a-zA-Z]*$/" required>
+        <span class="error" style="color:red" ng-show="myform.name.$error.required">*Required</span> 
+        <span class="error" style="color:red" ng-show="myform.name.$error.pattern">Only characters are allowed</span> 
+        <br> <br>
+        <input type="text" placeholder="Enter phone number" size="40" name="mobile" ng-model="mobile"
+        ng-maxlength="10" required>
+        <span class="error" style="color:red" ng-show="myform.mobile.$error.required">*Required</span> 
+        <span class="error" style="color:red"  ng-show="myform.mobile.$error.maxlength">Mobile number shall contain only 10 digits</span> 
+        <br> <br>
+        <input type="text" name="pin" ng-model="pin" size="40" placeholder="Enter pin code" 
+        ng-maxlength="6" required>
+        <span class="error" style="color:red"  ng-show="myform.pin.$error.required">*Required</span> 
+        <span class="error" style="color:red"  ng-show="myform.pin.$error.maxlength">Pin code should be of 6 digits</span> 
+        <br> <br>
+        <input type="email" placeholder="Enter email" size="40" ng-model="myemail" name="myemail" required>
+        <span class="error" style="color:red"  ng-show="myform.myemail.$error.required">*Required</span> 
+        <span class="error" style="color:red"  ng-show="myform.myemail.$error.email">Invalid email address</span> 
+        </span><br> <br>
+        <input type="button" value="Display" ng-click="isShow('show')">
+    </form>
+    <div ng-show="showval">
+        <h2 style="text-align: center;">Person Details</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Pin Code</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{name}}</td> <!--ng-model name goes here-->
+                    <td>{{mobile}}</td> 
+                    <td>{{pin}}</td>
+                    <td>{{myemail}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

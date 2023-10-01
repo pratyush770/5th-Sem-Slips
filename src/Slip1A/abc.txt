@@ -1,0 +1,25 @@
+import java.io.*;
+public class SlipA
+{
+    public static void main(String[] args) throws Exception
+    {
+        FileReader fr = new FileReader(args[]);
+        FileWriter fw = new FileWriter("abc.txt");
+        int data = ;
+        char ch;
+        while(data!=-)
+        {
+            data = fr.read();
+            ch = (char)data;
+            if(ch>='' && ch<='')
+                ;
+            else
+            {
+                fw.write((char)data + "");
+            }
+        }
+        fw.flush();
+        fr.close();
+    }
+}
+￿

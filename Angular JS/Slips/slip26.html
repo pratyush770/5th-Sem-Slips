@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">ELearning System</h1>
+    <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/about">About Us</a></li>
+        <li><a href="#/staff">Staff</a></li>
+        <li><a href="#/management">Management</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="home.html">
+        <h2>Welcome to Homepage</h2>
+    </script>
+    <script type="text/ng-template" id="about.html">
+        <h2>About Us</h2>
+        <h4>For any queries, contact us at gcc@gmail.com</h4>
+        <h4>Phone : 9054312872</h4>
+    </script>
+    <script type="text/ng-template" id="staff.html">
+        <h2>Welcome to Staff page</h2>
+    </script>
+    <script type="text/ng-template" id="management.html">
+        <h2>Welcome to Management page</h2>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp',['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/home',{
+                templateUrl : 'home.html'
+            })
+            .when('/about',{
+                templateUrl : 'about.html'
+            })
+            .when('/staff',{
+                templateUrl : 'staff.html'
+            })
+            .when('/management',{
+                templateUrl : 'management.html'
+            })
+        })
+    </script>
+</body>
+</html>

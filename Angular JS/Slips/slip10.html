@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Hotels in Pune</h1>
+    <p><a href="#/">Home</a></p>
+    <ul>
+        <li><a href="#/jm">J W MARRIOT</a></li>
+        <li><a href="#/royal">Royal Orchid</a></li>
+        <li><a href="#/lemon">Lemon Tree</a></li>
+        <li><a href="#/pride">Pride Hotel</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="jwm.html">
+        <h1>Welcome to J W MARRIOT Hotel</h1>
+        <h4>Address : Senapati Bapat Road, ShivajiNagar, Pune, Maharashtra </h4>
+        <h4>Contact : 9922567099</h4>
+    </script>
+    <script type="text/ng-template" id="royal.html">
+        <h1>Welcome to Royal Orchid Hotel</h1>
+        <h4>Address : Marisoft Annexe, Kalyani Nagar, Pune, Maharashtra </h4>
+        <h4>Contact : 9545778001</h4>
+    </script>
+    <script type="text/ng-template" id="lemon.html">
+        <h1>Welcome to Lemon Tree Hotel</h1>
+        <h4>Address : P4 Phase 1, Hinjewadi, Pune, Maharashtra </h4>
+        <h4>Contact : 7666234980</h4>
+    </script>
+    <script type="text/ng-template" id="pride.html">
+        <h1>Welcome to Pride Hotel</h1>
+        <h4>Address : University Rd, Narveer Tanaji Wadi, ShivajiNagar, Pune, Maharashtra </h4>
+        <h4>Contact : 8001567891</h4>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module("myApp",[]);
+        var app = angular.module("myApp",['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/jm',{
+                templateUrl : 'jwm.html'
+            })
+            .when('/royal',{
+                templateUrl : 'royal.html'
+            })
+            .when('/lemon',{
+                templateUrl : 'lemon.html'
+            })
+            .when('/pride',{
+                templateUrl : 'pride.html'
+            })
+            .otherwise({redirectTo : '/'})
+        })
+    </script>
+</body>
+</html>

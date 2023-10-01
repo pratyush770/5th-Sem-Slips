@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.showval = false;
+            $scope.showHide = function(param){
+                if(param=='show'){
+                    $scope.showval = true;
+                }
+            }
+        });
+    </script>
+    <form action="" name="myform" novalidate>
+        <h1 style="text-align: center;">Voter Registration</h1>
+        <input type="text" placeholder="Enter name" size="30" name="name" ng-model="name" 
+        ng-pattern="/^[A-Z]*$/" required>
+        <span class="error" style="color:red" ng-show="myform.name.$error.required">*Required</span>
+        <span class="error" style="color:red" ng-show="myform.name.$error.pattern">Name should be in uppercase letters</span> <br> <br>
+    <input type="text" size="30" placeholder="Enter age" name="myage" ng-model="myage" 
+    ng-pattern="/^(?:1[8-9]|[2-5][0-9]|100)$/"required>
+    <span class="error" style="color:red" ng-show="myform.myage.$error.required">*Required</span>
+    <span class="error" style="color:red" ng-show="myform.myage.$error.pattern">Age should not be less than 18</span> <br> <br>
+    <input type="text" placeholder="Enter nationality" size="30" name="nat" ng-model="nat" 
+    ng-pattern="/^['Indian']*$/" required>
+    <span class="error" style="color:red" ng-show="myform.nat.$error.required">*Required</span>
+    <span class="error" style="color:red" ng-show="myform.nat.$error.pattern">Nationality should be Indian</span> <br> <br>
+    <input type="button" value="Display" ng-click="showHide('show')">
+    </form>
+    <div ng-show="showval">
+    <h1 style="text-align: center;">Voter Details</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Nationality</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{name}}</td>
+                <td>{{myage}}</td>
+                <td>{{nat}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

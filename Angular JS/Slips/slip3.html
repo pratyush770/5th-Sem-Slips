@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Slip 3</title>
+    <style>
+        table, th, td 
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-left:500px;
+            height:15px;
+            width:400px;
+            padding:19.5px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" style="margin:50px;">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll Number</th>
+                <th>Student ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in student">
+                <td>{{x.name}}</td>
+                <td>{{x.roll}}</td>
+                <td>{{x.sid}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.student=[
+                {name:'Pratyush',roll:1,sid:1234},
+                {name:'Prayushi',roll:2,sid:5678},
+                {name:'Prakash',roll:3,sid:91011},
+                {name:'Suchismita',roll:4,sid:1213},
+                {name:'Pankaj',roll:5,sid:1415},
+                {name:'Pihu',roll:6,sid:1617},
+                {name:'Pranab',roll:7,sid:1819},
+                {name:'Praveen',roll:8,sid:2021},
+                {name:'Varad',roll:9,sid:2223},
+                {name:'Atharva',roll:10,sid:2425}
+            ];
+        });
+    </script>
+    </body>
+</html>

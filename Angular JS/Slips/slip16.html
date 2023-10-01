@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app =angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.showStudent = function(){
+                $scope.stud=[
+                    { name:'Pratyush',city:'Pune'},,
+                    {name:'Prayushi',city:'Pune'},
+                    {name:'Suresh',city:'Mumbai'},
+                    {name:'Priyanka',city:'Pune'}
+                ]
+            }
+        });
+    </script>
+    <form action="">
+        <h1>List of students living in pune</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in stud | filter:'Pune'">
+                    <td>{{x.name}}</td>
+                    <td>{{x.city}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="button" ng-click="showStudent()" value="Click Here">
+    </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+    var app = angular.module('myApp',[]);
+    app.controller('userCtrl',function($scope){
+        $scope.info = [
+            {name:'Awesome'},
+            {name:'Bollywood'},
+            {name:'Cricket'},
+            {name:'Denmark'},
+            {name:'Education'},
+            {name:'Friendship'},
+            {name:'Health'},
+            {name:'India'},
+            {name:'Joker'},
+            {name:'Kite'},
+            {name:'Love'},
+            {name:'Mariana Trench'},
+            {name:'Needle'},
+            {name:'Onion'},
+            {name:'Politics'},
+            {name:'Qatar Airways'},
+            {name:'Rolls Royce'},
+            {name:'Sports'},
+            {name:'Truck'},
+            {name:'Uruguay'},
+            {name:'Venice'},
+            {name:'Worship'},
+            {name:'Xmas'},
+            {name:'Yeti'},
+            {name:'Zayn Malik'},
+        ];
+    });
+    </script>
+    Enter a word to get suggestion :
+    <input type="text" size="30" ng-model="search">
+    <div ng-hide="info"></div>
+    <table>
+        <tbody>
+            <tr ng-repeat="x in info | filter:search" ng-show="search">
+                <td>{{x.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

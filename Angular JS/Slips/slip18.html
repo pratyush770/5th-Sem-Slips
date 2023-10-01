@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Teachers of SYBBA(CA)</h1>
+    <p><a href="#/">Home</a></p>
+    <ul>
+        <li><a href="#/s1">Staff 1</a></li>
+        <li><a href="#/s2">Staff 2</a></li>
+        <li><a href="#/s3">Staff 3</a></li>
+        <li><a href="#/s4">Staff 4</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="padma.html">
+        <img src="../images/Padma-Nene.jpg" alt="" height="300" width="300">
+        <h3>Name : Padma Nene</h3>
+    </script>
+    <script type="text/ng-template" id="prashant.html">
+        <img src="../images/prashant-salve.jpg" alt="" height="300" width="300">
+        <h3>Name : Prashant Salve</h3>
+    </script>
+    <script type="text/ng-template" id="priyanka.html">
+        <img src="../images/Priyanka-Jain.jpg" alt="" height="300" width="300">
+        <h3>Name : Priyanka Jain</h3>
+    </script>
+    <script type="text/ng-template" id="sandip.html">
+        <img src="../images/Sandip-rathod.jpg" alt="" height="300" width="300">
+        <h3>Name : Sandeep Rathod</h3>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app=angular.module('myApp',[]);
+        var app = angular.module('myApp',['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/s1',{
+                templateUrl : 'padma.html'
+            })
+            .when('/s2',{
+                templateUrl : 'prashant.html'
+            })
+            .when('/s3',{
+                templateUrl : 'priyanka.html'
+            })
+            .when('/s4',{
+                templateUrl : 'sandip.html'
+            })
+            .otherwise({redirectTo : '/'})
+        })
+    </script>
+</body>
+</html>

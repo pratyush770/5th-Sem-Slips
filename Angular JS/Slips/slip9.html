@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.parseInt = parseInt;
+            $scope.reset = function(){
+                $scope.dob="";
+                $scope.jdate="";
+                $scope.salary="";
+            }
+            $scope.reset();
+
+            $scope.showval=false;
+            $scope.showHide = function(param){
+                if(param=='show'){
+                    $scope.showval = true;
+                }
+            }
+        });
+    </script>
+    <h1 style="text-align: center;">Employee Registration</h1>
+    <form action="" name="myform" novalidate>
+        <input type="text" name="dob" ng-model="dob" placeholder="Enter Date of Birth" size="40" required
+        ng-pattern="/^[0-9-/]*$/">
+        <span class="error" ng-show="myform.dob.$error.required">*Required</span>
+        <span class="error" ng-show="myform.dob.$error.pattern">Date should only be in digits</span> <br> <br>
+        <input type="text" name="jdate" ng-model="jdate" placeholder="Enter Date of Joining" size="40" required
+        ng-pattern="/^[0-9-/]*$/">
+        <span class="error" ng-show="myform.jdate.$error.required">*Required</span>
+        <span class="error" ng-show="myform.jdate.$error.pattern">Date should only be in digits</span> <br> <br>
+        <input type="text" name="salary" ng-model="salary" placeholder="Enter Salary" size="40" required
+        ng-pattern="/^[0-9,]*$/">
+        <span class="error" ng-show="myform.salary.$error.required">*Required</span>
+        <span class="error" ng-show="myform.salary.$error.pattern">Salary should only be in digits</span> <br> <br>
+        <button ng-click="reset()">Reset</button>
+        <input type="button" value="Display" ng-click="showHide('show')">
+    </form>
+    <div ng-show="showval">
+        <h1 style="text-align: center;">Employee Details</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Date Of Birth</th>
+                    <th>Date of Joining</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{dob}}</td>
+                    <td>{{jdate}}</td>
+                    <td>{{salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <form action="" name="calc">
+        <h1 style="text-align: center;">Calculator using ng-switch</h1>
+        <input type="text" name="first" ng-model="num1" placeholder="Enter first number" size="40"> <br> <br>
+        <input type="text" name="second" ng-model="num2" placeholder="Enter second number" size="40"> <br> <br>
+        Select an operation : <br> <br>
+        Addition : <input type="radio" value="+" ng-model="status" name="arith"> <br>
+        Subtraction : <input type="radio" value="-" ng-model="status" name="arith"> <br>
+        Multiplication : <input type="radio" value="*" ng-model="status" name="arith"> <br>
+        Division : <input type="radio" value="/" ng-model="status" name="arith"> <br> 
+        <hr>
+        <div ng-switch="status">
+            <div ng-switch-when="+">
+                <h3>{{parseInt(num1) + parseInt(num2)}}</h3>
+            </div>
+            <div ng-switch-when="-">
+                <h3>{{parseInt(num2) - parseInt(num1)}}</h3>
+            </div>
+            <div ng-switch-when="*">
+                <h3>{{parseInt(num1) * parseInt(num2)}}</h3>
+            </div>
+            <div ng-switch-when="/">
+                <h3>{{parseInt(num2) / parseInt(num1)}}</h3>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

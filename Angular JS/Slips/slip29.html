@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Online School System</h1>
+    <p><a href="#/">Home</a></p>
+    <ul>
+        <li><a href="#/teach">Teachers</a></li>
+        <li><a href="#/stud">Students</a></li>
+        <li><a href="#/gr">GR Number</a></li>
+        <li><a href="#/edit">Edit</a></li>
+    </ul>
+
+    <script type="text/ng-template" id="teachers.html">
+        <h2>1) Shaheen Shaikh</h2>
+        <h2>2) Farheen Jamkhandi</h2>
+        <h2>3) Versha Penumaka</h2>
+        <h2>4) Vijaya Kamble</h2>
+    </script>
+    <script type="text/ng-template" id="students.html">
+        <h2>1) Harshall Chavan</h2>
+        <h2>2) Namrata Urankar</h2>
+        <h2>3) Hrishikesh Ghorpade</h2>
+        <h2>4) Isha Balsaraf</h2>
+    </script>
+    <script type="text/ng-template" id="gr_no.html">
+        <h2>1) 376231</h2>
+        <h2>2) 376232</h2>
+        <h2>3) 376233</h2>
+        <h2>4) 376234</h2>
+    </script>
+    <script type="text/ng-template" id="edit.html">
+        <h2>You can edit, update or delete data from here</h2>
+    </script>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp',['ngRoute']);
+        app.config(function ($routeProvider){
+            $routeProvider
+            .when('/teach',{
+                templateUrl : 'teachers.html'
+            })
+            .when('/stud',{
+                templateUrl : 'students.html'
+            })
+            .when('/gr',{
+                templateUrl : 'gr_no.html'
+            })
+            .when('/edit',{
+                templateUrl : 'edit.html'
+            })
+            .otherwise({redirectTo : '/'})
+        });
+    </script>
+</body>
+</html>

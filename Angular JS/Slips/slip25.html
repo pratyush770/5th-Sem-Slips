@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('userCtrl',function($scope){
+            $scope.showval = false;
+            $scope.showHide = function(param){
+                if(param=='show'){
+                    $scope.showval = true;
+                }
+            }
+        });
+    </script>
+    <h1 style="text-align: center;">Login System</h1>
+    <form action="" name="myform" novalidate>
+        <input type="email" name="myemail" ng-model="myemail" placeholder="Enter email" size="30" required>
+        <span class="error" style="color:red" ng-show="myform.myemail.$error.required">*Required</span>
+        <span class="error" style="color:red" ng-show="myform.myemail.$error.email">Valid email required</span> <br> <br>
+        <input type="password" name="pass" ng-model="pass" size="30" placeholder="Enter password" 
+        ng-minlength="8" required>
+        <span class="error" style="color:red" ng-show="myform.pass.$error.required">*Required</span>
+        <span class="error" style="color:red" ng-show="myform.pass.$error.minlength">Password should be of minimum 8 characters</span> <br> <br>
+        <input type="button" value="Display" ng-click="showHide('show')">
+    </form>
+    <div ng-show="showval">
+    <h1 style="text-align: center;">Login Details</h1>
+    <table border="1">
+        <thead>
+           <tr>
+            <th>Email</th>
+            <th>Password</th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{myemail}}</td>
+                <td>{{pass}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
