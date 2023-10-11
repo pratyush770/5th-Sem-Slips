@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.service('mathService',function(){
+            this.add=function(x,y){
+                return parseInt(x) + parseInt(y);
+            }
+            this.sub=function(x,y){
+                return parseInt(y) - parseInt(x);
+            }
+            this.mul=function(x,y){
+                return parseInt(x) * parseInt(y);
+            }
+            this.div=function(x,y){
+                return parseInt(y) / parseInt(x);
+            }
+        });
+        app.controller('userCtrl',function($scope,mathService){
+            $scope.x = 10;
+            $scope.y=20
+            $scope.result = 0;
+            $scope.Addition=function(){
+                $scope.result = mathService.add($scope.x,$scope.y);
+            }
+            $scope.Subtraction=function(){
+                $scope.result = mathService.sub($scope.x,$scope.y);
+            }
+            $scope.Multiplication=function(){
+                $scope.result = mathService.mul($scope.x,$scope.y);
+            }
+            $scope.Division=function(){
+                $scope.result = mathService.div($scope.x,$scope.y);
+            }
+        })
+    </script>
+    <h1 style="text-align: center;">Custom services example</h1>
+    First Number : <input type="number" ng-model="x"> <br> <br>
+    Second Number : <input type="number" ng-model="y"> <br> <br>
+    Result : {{result}} <br> <br>
+    <input type="button" value="Add" ng-click="Addition()">
+    <input type="button" value="Sub" ng-click="Subtraction()">
+    <input type="button" value="Mul" ng-click="Multiplication()">
+    <input type="button" value="Div" ng-click="Division()">
+</body>
+</html>

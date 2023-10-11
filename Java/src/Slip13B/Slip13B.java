@@ -13,7 +13,7 @@ public class Slip13B {
             n=sc.nextInt();
             lst.add(n);
         }
-        System.out.println("The elements of the ArrayList are : ");
+        System.out.println("The elements of the ArrayList in reverse are : ");
         Iterator it = lst.iterator();
         Collections.reverse(lst);
         while(it.hasNext()){

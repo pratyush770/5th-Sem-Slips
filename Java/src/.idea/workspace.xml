@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c593ea5-170b-4158-acb2-6a606a20c709" name="Changes" comment="" />
+    <list default="true" id="7c593ea5-170b-4158-acb2-6a606a20c709" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slip11B/Slip11B.class" beforeDir="false" afterPath="$PROJECT_DIR$/Slip11B/Slip11B.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slip11B/Slip11B.java" beforeDir="false" afterPath="$PROJECT_DIR$/Slip11B/Slip11B.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slip12A/Slip12A.java" beforeDir="false" afterPath="$PROJECT_DIR$/Slip12A/Slip12A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slip12B/Slip12B.java" beforeDir="false" afterPath="$PROJECT_DIR$/Slip12B/Slip12B.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slip13B/Slip13B.java" beforeDir="false" afterPath="$PROJECT_DIR$/Slip13B/Slip13B.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slip5A/xyz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slip7B/Slip7B.java" beforeDir="false" afterPath="$PROJECT_DIR$/Slip7B/Slip7B.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,18 +26,22 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="ProjectId" id="2W4Ykko0PNI9ETOTDzmDanj9Mwj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pratyush/IdeaProjects/JAVA Slips/Java&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Slip13B">
     <configuration name="CollectionPrac" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CollectionPrac" />

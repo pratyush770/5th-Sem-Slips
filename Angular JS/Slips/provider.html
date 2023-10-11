@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="userCtrl">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.config(function($provide){
+            $provide.provider('user',function(){
+                this.$get=function(){
+                    return {
+                        name : "Pratyush"
+                    }
+                }
+            })
+        });
+        app.controller('userCtrl',function($scope,user){
+            $scope.name=user.name;
+        })
+    </script>
+    <h1>My name is {{name}}</h1>
+</body>
+</html>

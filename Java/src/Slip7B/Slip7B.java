@@ -9,7 +9,7 @@ public class Slip7B extends Frame
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e)
             {
-                System.exit(0);
+                dispose();
             }
         });
         l = new Label("This is slip 7B");

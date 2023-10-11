@@ -14,7 +14,7 @@ public class Slip12B
         for(i=0;i<s.length;i++)
         {
             s1[i]=s[i];
-            StringBuffer buf = new StringBuffer(s[i]);
+            StringBuffer buf = new StringBuffer(s1[i]);
             buf = buf.reverse();
             System.out.println("The reverse strings are : " + buf);
         }
