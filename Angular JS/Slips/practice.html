@@ -1,0 +1,120 @@
+ <!DOCTYPE html>
+ <html ng-app="myApp">
+     <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <style>
+        span{
+            color:red;
+        }
+    </style>
+</head>
+<body ng-controller="myCtrl">
+    <!-- ng practice -->
+    <div ng-init="Text='ng-init and ng-bind demo'">
+        <p ng-bind="Text"></p>
+    </div>
+    <div ng-init="n1=10; n2=20">
+        <p>{{n1 + n2}}</p>
+    </div>
+    <input type="text" ng-model="num1" placeholder="Enter 1st number : "> <br> <br>
+    <input type="text" ng-model="num2" placeholder="Enter 2nd number : "> <br> <br>
+    Addition : <input type="radio" name="total" ng-model="status" value="+"> <br>
+    Subtraction : <input type="radio" name="total" ng-model="status" value="-"> <br>
+    Multiplication : <input type="radio" name="total" ng-model="status" value="*"> <br>
+    Division : <input type="radio" name="total" ng-model="status" value="/"> <br>
+    <div ng-switch="status">
+        <div ng-switch-when="+">
+            <h3>{{parseInt(num1) + parseInt(num2)}}</h3>
+        </div>
+        <div ng-switch-when="-">
+            <h3>{{parseInt(num2) - parseInt(num1)}}</h3>
+        </div>
+        <div ng-switch-when="*">
+            <h3>{{parseInt(num1) * parseInt(num2)}}</h3>
+        </div>
+        <div ng-switch-when="/">
+            <h3>{{parseInt(num2) / parseInt(num1)}}</h3>
+        </div>
+    </div>
+    <!-- SPA practice -->
+     <ul>
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/p1">Page 1</a></li>
+        <li><a href="#/p2">Page 2</a></li>
+        <li><a href="#/p3">Page 3</a></li>
+    </ul>
+<script type="text/ng-template" id="home.html">
+    <h1>Homepage</h1>
+</script>
+<script type="text/ng-template" id="page1.html">
+    <h1>Page 1</h1>
+</script>
+<script type="text/ng-template" id="page2.html">
+    <h1>Page 2</h1>
+</script>
+<script type="text/ng-template" id="page3.html">
+    <h1>Page 3</h1>
+</script>
+<div ng-view></div>
+<!-- form validation practice -->
+<form action="" name="myform">
+    Enter name : <input type="text" name="name" ng-model="myname" ng-pattern="/^[a-zA-Z]*$/" required>
+    <span class="error" ng-show="myform.name.$error.required">Required</span>
+    <span class="error" ng-show="myform.name.$error.pattern">Name should be in alphabets only</span>
+    <br> <br>
+    Enter age : <input type="text" name="age" ng-model="myage" ng-pattern="/^(?:1[8-9]|[2-5][0-9]|50)$/" required>
+    <span class="error" ng-show="myform.age.$error.required">Required</span>
+    <span class="error" ng-show="myform.age.$error.pattern">Age should be between 18-50</span>
+    <br> <br>
+    <input type="button" value="Display" ng-click="showData('show')">
+    <br> <br>
+    <div ng-show="showVal">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{myname}}</td>
+                    <td>{{myage}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+<script>
+    var app = angular.module('myApp',['ngRoute']);
+    app.config(function($routeProvider){
+        $routeProvider
+        .when('/',{
+            templateUrl : 'home.html'
+        })
+        .when('/p1',{
+            templateUrl : 'page1.html'
+        })
+        .when('/p2',{
+            templateUrl : 'page2.html'
+        })
+        .when('/p3',{
+            templateUrl : 'page3.html'
+        })
+    });
+    app.controller('myCtrl',function($scope){
+            $scope.showVal = false;
+            $scope.showData = function(param){
+                if(param=='show'){
+                    $scope.showVal=true;
+                }
+            }
+            $scope.parseInt = parseInt;
+        })
+</script>
+</body>
+</html>

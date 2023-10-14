@@ -22,13 +22,13 @@
                 if(param=="show"){
                     $scope.showval=true;
                 }
-                if($scope.per=74 && $scope.per<=100)
+                if($scope.perc=74 && $scope.perc<=100)
                     $scope.grade="A";
-                else if($scope.per=60 && $scope.per<74)
+                else if($scope.perc=60 && $scope.perc<74)
                     $scope.grade="First";
-                else if($scope.per>=45 && $scope.per<59)
+                else if($scope.perc>=45 && $scope.perc<59)
                     $scope.grade="Second";
-                else if($scope.per>=35 && $scope.per<45)
+                else if($scope.perc>=35 && $scope.perc<45)
                     $scope.grade="Pass";
                 else
                     $scope.grade="fail";

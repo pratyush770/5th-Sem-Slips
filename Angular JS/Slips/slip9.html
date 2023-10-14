@@ -34,15 +34,15 @@
     <h1 style="text-align: center;">Employee Registration</h1>
     <form action="" name="myform" novalidate>
         <input type="text" name="dob" ng-model="dob" placeholder="Enter Date of Birth" size="40" required
-        ng-pattern="/^[0-9-/]*$/">
+        ng-pattern="/^[0-9]*$/">
         <span class="error" ng-show="myform.dob.$error.required">*Required</span>
         <span class="error" ng-show="myform.dob.$error.pattern">Date should only be in digits</span> <br> <br>
         <input type="text" name="jdate" ng-model="jdate" placeholder="Enter Date of Joining" size="40" required
-        ng-pattern="/^[0-9-/]*$/">
+        ng-pattern="/^[0-9]*$/">
         <span class="error" ng-show="myform.jdate.$error.required">*Required</span>
         <span class="error" ng-show="myform.jdate.$error.pattern">Date should only be in digits</span> <br> <br>
         <input type="text" name="salary" ng-model="salary" placeholder="Enter Salary" size="40" required
-        ng-pattern="/^[0-9,]*$/">
+        ng-pattern="/^[0-9]*$/">
         <span class="error" ng-show="myform.salary.$error.required">*Required</span>
         <span class="error" ng-show="myform.salary.$error.pattern">Salary should only be in digits</span> <br> <br>
         <button ng-click="reset()">Reset</button>

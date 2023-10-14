@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html ng-app> <!--Angular JS Application-->
+<html ng-app="myApp"> <!--Angular JS Application-->
 <head>
     <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <p>I am {{relation}}</p>
+    <div ng-controller="myCtrl">
+    <p>I am {{relation}}</p>
+    </div>
+    <!-- <div>
     Click here to disable the text : <input type="checkbox" ng-model="a">
     <br>
     <input type="text" ng-disabled="a">
@@ -21,6 +25,15 @@
         <p>The DIV element will be removed when the checkbox is not checked </p>
         <p>The DIV element will return, if you check the checkbox</p>
     </div>
-    </div>
+    </div> -->
+    <script>
+        var app = angular.module('myApp',[]);
+        app.run(function($rootScope){
+            $rootScope.relation = "Pratyush";
+        });
+        app.controller('myCtrl',function($scope){
+            $scope.relation="Prayushi";
+        });
+    </script>
 </body>
 </html>
